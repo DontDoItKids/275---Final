@@ -90,7 +90,7 @@ namespace _275___Final
         {
             TextBox txt = (TextBox)sender;
             string bad = txt.Name.Split("txt")[1];
-            if (txt.Text == "" || txt.Text == " " || txt.Text is null)
+            if (txt.Text == "" || txt.Text == " " || txt.Text is null || txt.Text == String.Empty)
             {
                 txt.Text = bad;
             }
