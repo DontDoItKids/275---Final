@@ -61,8 +61,8 @@ namespace _275___Final
                 {
                     if (user.Username == username && user.Password == password)
                     {
-                        SendUsername(username);
                         MessageBox.Show("Login Successful.");
+                        SendUsername(username);
                         return;
                     }
                 }

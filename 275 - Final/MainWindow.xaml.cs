@@ -31,9 +31,9 @@ namespace _275___Final
             gridEverything.Children.Add(lc);
         }
 
-        private void del_SendUsername(string username)
+        public void del_SendUsername(string username)
         {
-            mc = new MainControl(username);
+            mc = new MainControl(username, this);
             gridEverything.Children.Clear();
             gridEverything.Children.Add(mc);
         }

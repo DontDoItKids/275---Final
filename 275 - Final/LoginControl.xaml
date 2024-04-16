@@ -19,8 +19,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="txtUsername"  Grid.Column="1" HorizontalAlignment="Center" Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="120" GotFocus="txtUsername_GotFocus" Background="GhostWhite" TextAlignment="Center"/>
-        <TextBox x:Name="txtPassword" Grid.Column="1" HorizontalAlignment="Center" Margin="0,35,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" GotFocus="txtPassword_GotFocus" Background="GhostWhite" TextAlignment="Center"/>
+        <TextBox x:Name="txtUsername"  Grid.Column="1" HorizontalAlignment="Center" Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Jerry" VerticalAlignment="Top" Width="120" GotFocus="txtUsername_GotFocus" Background="GhostWhite" TextAlignment="Center"/>
+        <TextBox x:Name="txtPassword" Grid.Column="1" HorizontalAlignment="Center" Margin="0,35,0,0" Grid.Row="1" TextWrapping="Wrap" Text="123456789" VerticalAlignment="Top" Width="120" GotFocus="txtPassword_GotFocus" Background="GhostWhite" TextAlignment="Center"/>
         <Button x:Name="btnLogin" Click="btnLogin_Click" Grid.Column="1" Content="Login" HorizontalAlignment="Center" Margin="0,65,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnRegister" Click="btnRegister_Click" Grid.Column="1" Content="Register" HorizontalAlignment="Center" Margin="0,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
 

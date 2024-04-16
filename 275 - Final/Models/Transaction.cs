@@ -27,6 +27,7 @@ namespace _275___Final.Models
         public int Amount { get; set; }
         public float Value { get; set; }
         public Currency CurrencyType { get; set; }
+        public int UserID { get; set; }
 
     }
 }

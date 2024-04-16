@@ -4,9 +4,144 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_275___Final"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800" Background="GhostWhite">
+    <Grid x:Name="gridTheStuff">
+        <materialDesign:Card>
+            <TabControl x:Name="tbcHelp"
+                    materialDesign:ColorZoneAssist.Mode="Standard"
+    materialDesign:ElevationAssist.Elevation="Dp3"
+    Style="{StaticResource MaterialDesignNavigationRailTabControl}"
+    Background="GhostWhite">
+                <TabItem x:Name="HomeTab" Loaded="HomeTab_Loaded">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="HomeAccount" />
+                            <TextBlock HorizontalAlignment="Center" Text="Home" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label x:Name="lblHomeWelcome" Content="Welcome Username" HorizontalAlignment="Center"/>
+                            <TextBlock Text="You suck" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+
+                <TabItem x:Name="CurrenciesTab" Loaded="CurrenciesTab_Loaded">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="AttachMoney" />
+                            <TextBlock HorizontalAlignment="Center" Text="Currencies" FontSize="14" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label Content="Supported Currencies" HorizontalAlignment="Center" FontSize="20"/>
+                            <DataGrid x:Name="dtgCurrencies" HorizontalAlignment="Center" Width="auto" Height="375" IsReadOnly="True" CanUserAddRows="False"
+                                      AutoGeneratingColumn="dtgCurrencies_AutoGeneratingColumn" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+
+                <TabItem x:Name="AddressesTab" Loaded="AddressesTab_Loaded">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="WalletBifold" />
+                            <TextBlock HorizontalAlignment="Center" Text="Addresses" FontSize="14" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Label x:Name="lblAddressWelcome" Content="Username(s) Addresses" HorizontalAlignment="Center" FontSize="20"/>
+                            <DataGrid x:Name="dtgAddress" HorizontalAlignment="Center" Width="auto" Height="325" IsReadOnly="True" CanUserAddRows="False" 
+                      AutoGeneratingColumn="dtgAddress_AutoGeneratingColumn"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="btnAddAddress" Content="Add Address" HorizontalAlignment="Center" Click="btnAddAddress_Click" Margin="0,10,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+
+                <TabItem x:Name="TransactionTab" Loaded="TransactionTab_Loaded">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Payment" />
+                            <TextBlock HorizontalAlignment="Center" Text="Transactions" FontSize="12"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <TextBlock Text="Fuck You Transaction" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+
+                <TabItem x:Name="TaxTab" Loaded="TaxTab_Loaded">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Gun" />
+                            <TextBlock x:Name="txtbTax" HorizontalAlignment="Center" Text="Tax" FontSize="16"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel>
+                            <TextBlock Text="Paying Taxes is for suckers" />
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+
+                <TabItem x:Name="AccountTab" Loaded="AccountTab_Loaded">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Account" />
+                            <TextBlock x:Name="txtbAccount" HorizontalAlignment="Center" Text="Account" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="Username:" FontSize="16"/>
+                                <TextBox x:Name="txtUsername" Width="200" Margin="10,0,0,0" FontSize="16" Focusable="False"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="Email:" FontSize="16"/>
+                                <TextBox x:Name="txtEmail" Width="200" Margin="10,0,0,0" FontSize="16" Focusable="False"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="First Name:" FontSize="16"/>
+                                <TextBox x:Name="txtFirstName" Width="200" Margin="10,0,0,0" FontSize="16" Focusable="False"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="Last Name:" FontSize="16"/>
+                                <TextBox x:Name="txtLastName" Width="200" Margin="10,0,0,0" FontSize="16" Focusable="False"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="Date of Birth:" FontSize="16"/>
+                                <DatePicker x:Name="dpDOB" Width="200" Margin="10,0,0,0" FontSize="16" IsEnabled="False"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="Legally Qualifies as Business:" FontSize="16"/>
+                                <CheckBox x:Name="chkBusiness" Margin="10,0,0,0" IsEnabled="False"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="btnAllowChanges" Content="Allow Changes" Click="btnAllowChanges_Click" Margin="0,10,10,0"/>
+                                <Button x:Name="btnUpdate" Content="Update" Click="btnUpdate_Click" Margin="10,10,0,0"/>
+                            </StackPanel>
+                            
+                            <Button x:Name="btnLogout" Content="Logout" Click="btnLogout_Click"  Margin="0,10,0,0"/>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
     </Grid>
 </UserControl>
