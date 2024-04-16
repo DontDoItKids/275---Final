@@ -38,6 +38,20 @@ namespace _275___Final
         private void HomeTab_Loaded(object sender, RoutedEventArgs e)
         {
             lblHomeWelcome.Content = "Welcome, " + theUser.Username;
+            List<Transaction> transRights = new List<Transaction>();
+            transRights.Add(_context.Transactions.Where(u => u.UserID == theUser.ID).OrderBy(c => c.ID).LastOrDefault());
+
+            dtgHome.ItemsSource = transRights;
+        }
+
+        private void dtgHome_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
+            e.Column.Header = propertyDescriptor.DisplayName;
+            if (propertyDescriptor.DisplayName == "UserID" || propertyDescriptor.DisplayName == "ID")
+            {
+                e.Cancel = true;
+            }
         }
 
         #endregion
@@ -95,14 +109,14 @@ namespace _275___Final
         {
             lblTransWelcome.Content = theUser.Username + "'s " + "Transactions";
             List<Transaction> trans = _context.Transactions.Where(u => u.UserID == theUser.ID).ToList();
-            dtgAddress.ItemsSource = trans;
+            dtgTransaction.ItemsSource = trans;
         }
 
         private void dtgTransaction_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
             e.Column.Header = propertyDescriptor.DisplayName;
-            if (propertyDescriptor.DisplayName == "UserID")
+            if (propertyDescriptor.DisplayName == "UserID" || propertyDescriptor.DisplayName == "ID")
             {
                 e.Cancel = true;
             }
@@ -110,7 +124,7 @@ namespace _275___Final
 
         private void btnAddTransaction_Click(object sender, RoutedEventArgs e)
         {
-
+            gridTheStuff.Children.Add(new AddTransacationControl(theUser, this));
         }
         #endregion
 
@@ -173,8 +187,7 @@ namespace _275___Final
             mw.gridEverything.Children.Add(lcc);
         }
 
+
         #endregion
-
-
     }
 }

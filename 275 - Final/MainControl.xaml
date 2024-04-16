@@ -22,9 +22,13 @@
                         </StackPanel>
                     </TabItem.Header>
                     <TabItem.Content>
-                        <StackPanel>
-                            <Label x:Name="lblHomeWelcome" Content="Welcome Username" HorizontalAlignment="Center"/>
-                            <TextBlock Text="You suck" />
+                        <StackPanel VerticalAlignment="Center">
+                            <Label x:Name="lblHomeWelcome" Content="Welcome Username" HorizontalAlignment="Center" FontSize="20"/>
+
+                            <Label Content="Your most recent Transaction" HorizontalAlignment="Center" FontSize="16"/>
+                            <DataGrid x:Name="dtgHome" HorizontalAlignment="Center" Width="auto" Height="100" IsReadOnly="True" CanUserAddRows="False" 
+                                      AutoGeneratingColumn="dtgHome_AutoGeneratingColumn"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                      />
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>

@@ -24,5 +24,6 @@ namespace _275___Final.Models
         public string Currency { get; set; }
         public double Value { get; set; } 
         public int UserID { get; set; }
+        public double GainLoss { get; set; }
     }
 }
