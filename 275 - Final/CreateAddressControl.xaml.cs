@@ -57,5 +57,10 @@ namespace _275___Final
             mc.dtgAddress.ItemsSource = _context.CryptoAddresses.Where(u => u.UserID == _user.ID).ToList();
             mc.gridTheStuff.Children.Remove(this);
         }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            mc.gridTheStuff.Children.Remove(this);
+        }
     }
 }

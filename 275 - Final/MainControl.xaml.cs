@@ -131,6 +131,7 @@ namespace _275___Final
         #region Tax Tab
 
         List<Transaction> transactions;
+        List<Transaction> yearTrans;
 
         private void TaxTab_Loaded(object sender, RoutedEventArgs e)
         {
@@ -152,7 +153,7 @@ namespace _275___Final
         private void cmbYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string year = cmbYear.SelectedItem.ToString();
-            List<Transaction> yearTrans = transactions.Where(t => t.Date.Year.ToString() == year).ToList();
+            yearTrans = transactions.Where(t => t.Date.Year.ToString() == year).ToList();
             dtgTax.ItemsSource = yearTrans;
 
             lblTaxYear.Content = "Your transactions for the " + year + " Tax Year";
@@ -170,7 +171,7 @@ namespace _275___Final
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
-
+            gridTheStuff.Children.Add(new TaxControl(theUser, this, yearTrans));
         }
 
         #endregion

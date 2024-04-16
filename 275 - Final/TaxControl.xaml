@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="_275___Final.TaxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_275___Final"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="GhostWhite">
+    <Grid>
+        <Label Content="This only an estimation. Please seek professional help" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label x:Name="lblPain" Content="Give me all your money" FontSize="18"/>
+        </StackPanel>
+
+        <Button Content="Go Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="auto" Margin="10" Click="Button_Click"/>
+    </Grid>
+</UserControl>

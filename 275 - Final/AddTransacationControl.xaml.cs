@@ -140,5 +140,10 @@ namespace _275___Final
 
             mc.gridTheStuff.Children.Remove(this);
         }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            mc.gridTheStuff.Children.Remove(this);
+        }
     }
 }
