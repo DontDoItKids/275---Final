@@ -36,12 +36,22 @@ namespace _275___Final
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            double numTokens;
+            if (double.TryParse(txtNumTokens.Text, out numTokens))
+            { }
+            else
+            {
+                MessageBox.Show("Please enter a valid number of tokens.");
+                return;
+            }
+
             _context.CryptoAddresses.Add(new CryptoAddress
             {
                 Address = txtAddress.Text,
                 UserID = _user.ID,
                 CurrencyID = (int)cmbCurrency.SelectedIndex + 1,
-                AddDate = DateTime.Now
+                AddDate = DateTime.Now,
+                NumberOfTokens = numTokens
             });
             _context.SaveChanges();
             mc.dtgAddress.ItemsSource = _context.CryptoAddresses.Where(u => u.UserID == _user.ID).ToList();

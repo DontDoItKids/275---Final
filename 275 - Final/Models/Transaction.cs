@@ -14,20 +14,15 @@ namespace _275___Final.Models
             Sell,
             Gift
         }
-        public enum Currency
-        {
-            CAD,
-            USD
-        }
 
         public int ID { get; set; }
+        public string UsersAddress { get; set; }
+        public string TargetAddress { get; set; }
         public TransactionType Type { get; set; }
         public DateTime Date { get; set; }
-        public string Address { get; set; }
-        public int Amount { get; set; }
-        public float Value { get; set; }
-        public Currency CurrencyType { get; set; }
+        public double AmountOfTokens { get; set; }
+        public string Currency { get; set; }
+        public double Value { get; set; } 
         public int UserID { get; set; }
-
     }
 }

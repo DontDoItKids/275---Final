@@ -33,6 +33,9 @@ namespace _275___Final.Migrations
                     b.Property<int>("CurrencyID")
                         .HasColumnType("int");
 
+                    b.Property<double>("NumberOfTokens")
+                        .HasColumnType("float");
+
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
@@ -70,11 +73,11 @@ namespace _275___Final.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<float>("CADtoUSD")
-                        .HasColumnType("real");
+                    b.Property<double>("CADtoUSD")
+                        .HasColumnType("float");
 
-                    b.Property<float>("USDtoCAD")
-                        .HasColumnType("real");
+                    b.Property<double>("USDtoCAD")
+                        .HasColumnType("float");
 
                     b.HasKey("Date");
 
@@ -89,18 +92,19 @@ namespace _275___Final.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<string>("Address")
+                    b.Property<double>("AmountOfTokens")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Currency")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CurrencyType")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("TargetAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -108,8 +112,12 @@ namespace _275___Final.Migrations
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.Property<float>("Value")
-                        .HasColumnType("real");
+                    b.Property<string>("UsersAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Value")
+                        .HasColumnType("float");
 
                     b.HasKey("ID");
 

@@ -11,7 +11,7 @@ namespace _275___Final.Models
     public class ExchangeRate
     {
         public DateTime Date { get; set; }
-        public float CADtoUSD { get; set; }
-        public float USDtoCAD { get; set; }
+        public double CADtoUSD { get; set; }
+        public double USDtoCAD { get; set; }
     }
 }

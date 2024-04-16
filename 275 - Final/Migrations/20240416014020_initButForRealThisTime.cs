@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace _275___Final.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class initButForRealThisTime : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,8 +17,9 @@ namespace _275___Final.Migrations
                 {
                     Address = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CurrencyID = table.Column<int>(type: "int", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    AddDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    NumberOfTokens = table.Column<double>(type: "float", nullable: false),
+                    AddDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,8 +46,8 @@ namespace _275___Final.Migrations
                 columns: table => new
                 {
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CADtoUSD = table.Column<float>(type: "real", nullable: false),
-                    USDtoCAD = table.Column<float>(type: "real", nullable: false)
+                    CADtoUSD = table.Column<double>(type: "float", nullable: false),
+                    USDtoCAD = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,12 +60,14 @@ namespace _275___Final.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UsersAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TargetAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Amount = table.Column<int>(type: "int", nullable: false),
-                    Value = table.Column<float>(type: "real", nullable: false),
-                    CurrencyType = table.Column<int>(type: "int", nullable: false)
+                    AmountOfTokens = table.Column<double>(type: "float", nullable: false),
+                    Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Value = table.Column<double>(type: "float", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,7 +86,8 @@ namespace _275___Final.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsBusiness = table.Column<bool>(type: "bit", nullable: false)
+                    IsBusiness = table.Column<bool>(type: "bit", nullable: false),
+                    IsAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

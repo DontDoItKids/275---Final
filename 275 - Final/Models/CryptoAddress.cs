@@ -12,7 +12,8 @@ namespace _275___Final.Models
     {
         public string Address { get; set; }
         public int CurrencyID { get; set; }
-        public int UserID { get; set; }
+        public double NumberOfTokens { get; set; }
         public DateTime AddDate { get; set; }
+        public int UserID { get; set; }
     }
 }

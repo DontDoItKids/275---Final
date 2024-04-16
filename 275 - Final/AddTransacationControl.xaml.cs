@@ -30,6 +30,9 @@ namespace _275___Final
             InitializeComponent();
             theUser = user;
             this.mc = mc;
+
+            cmbAddress.ItemsSource = _context.CryptoAddresses.Where(ca => ca.UserID == theUser.ID).ToList();
+
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
