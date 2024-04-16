@@ -39,7 +39,7 @@ namespace _275___Final
         {
             lblHomeWelcome.Content = "Welcome, " + theUser.Username;
             List<Transaction> transRights = new List<Transaction>();
-            transRights.Add(_context.Transactions.Where(u => u.UserID == theUser.ID).OrderBy(c => c.ID).LastOrDefault());
+            transRights.Add(_context.Transactions.Where(u => u.UserID == theUser.ID).OrderBy(c => c.Date).LastOrDefault());
 
             dtgHome.ItemsSource = transRights;
         }
@@ -130,7 +130,45 @@ namespace _275___Final
 
         #region Tax Tab
 
+        List<Transaction> transactions;
+
         private void TaxTab_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> years = new List<string>();
+            transactions = _context.Transactions.Where(u => u.UserID == theUser.ID).ToList();
+
+            foreach (Transaction t in transactions)
+            {
+                if (!years.Contains(t.Date.Year.ToString()))
+                {
+                    years.Add(t.Date.Year.ToString());
+                }
+            }
+
+            cmbYear.ItemsSource = years;
+            cmbYear.SelectedIndex = 0;
+        }
+
+        private void cmbYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string year = cmbYear.SelectedItem.ToString();
+            List<Transaction> yearTrans = transactions.Where(t => t.Date.Year.ToString() == year).ToList();
+            dtgTax.ItemsSource = yearTrans;
+
+            lblTaxYear.Content = "Your transactions for the " + year + " Tax Year";
+        }
+
+        private void dtgTax_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
+            e.Column.Header = propertyDescriptor.DisplayName;
+            if (propertyDescriptor.DisplayName == "UserID" || propertyDescriptor.DisplayName == "ID")
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -189,5 +227,7 @@ namespace _275___Final
 
 
         #endregion
+
+
     }
 }

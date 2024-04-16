@@ -23,7 +23,7 @@
                     </TabItem.Header>
                     <TabItem.Content>
                         <StackPanel VerticalAlignment="Center">
-                            <Label x:Name="lblHomeWelcome" Content="Welcome Username" HorizontalAlignment="Center" FontSize="20"/>
+                            <Label x:Name="lblHomeWelcome" Content="Welcome Username" HorizontalAlignment="Center" FontSize="20" Margin="0,0,0,15"/>
 
                             <Label Content="Your most recent Transaction" HorizontalAlignment="Center" FontSize="16"/>
                             <DataGrid x:Name="dtgHome" HorizontalAlignment="Center" Width="auto" Height="100" IsReadOnly="True" CanUserAddRows="False" 
@@ -44,7 +44,7 @@
                         <StackPanel>
                             <Label Content="Supported Currencies" HorizontalAlignment="Center" FontSize="20"/>
                             <DataGrid x:Name="dtgCurrencies" HorizontalAlignment="Center" Width="auto" Height="400" IsReadOnly="True" CanUserAddRows="False"
-                                      AutoGeneratingColumn="dtgCurrencies_AutoGeneratingColumn" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                                      AutoGeneratingColumn="dtgCurrencies_AutoGeneratingColumn" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>
@@ -100,7 +100,17 @@ AutoGeneratingColumn="dtgTransaction_AutoGeneratingColumn"  ScrollViewer.CanCont
                     </TabItem.Header>
                     <TabItem.Content>
                         <StackPanel>
-                            <TextBlock Text="Paying Taxes is for suckers" />
+                            <Label Content="Tax Estimations" HorizontalAlignment="Center" FontSize="20"/>
+
+                            <Label x:Name="lblTaxYear" Content="These are only estimations. Seek profesional help." FontSize="13" HorizontalAlignment="Center"/>
+
+                            <StackPanel>
+                                <ComboBox x:Name="cmbYear" Width="auto" HorizontalAlignment="Center" SelectionChanged="cmbYear_SelectionChanged"/>
+                                <DataGrid x:Name="dtgTax" HorizontalAlignment="Center" Width="auto" Height="305" 
+                                          IsReadOnly="True" CanUserAddRows="False" AutoGeneratingColumn="dtgTax_AutoGeneratingColumn" />
+
+                                <Button x:Name="btnCalculate" Content="Calculate" Width="auto" HorizontalAlignment="Center" Margin=" 0,15,0,0" Click="btnCalculate_Click"/>
+                            </StackPanel>
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>

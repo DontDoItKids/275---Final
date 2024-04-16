@@ -133,6 +133,11 @@ namespace _275___Final
             _context.SaveChanges();
             mc.dtgAddress.ItemsSource = _context.CryptoAddresses.Where(u => u.UserID == theUser.ID).ToList();
             mc.dtgTransaction.ItemsSource = _context.Transactions.Where(u => u.UserID == theUser.ID).ToList();
+
+            List<Transaction> transRights = new List<Transaction>();
+            transRights.Add(_context.Transactions.Where(u => u.UserID == theUser.ID).OrderBy(c => c.Date).LastOrDefault());
+            mc.dtgHome.ItemsSource = transRights;
+
             mc.gridTheStuff.Children.Remove(this);
         }
     }
