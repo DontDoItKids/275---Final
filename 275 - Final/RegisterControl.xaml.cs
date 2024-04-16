@@ -109,5 +109,9 @@ namespace _275___Final
             }
         }
 
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            mw.gridEverything.Children.Remove(this);
+        }
     }
 }

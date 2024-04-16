@@ -93,9 +93,25 @@ namespace _275___Final
         #region Transactions Tab
         private void TransactionTab_Loaded(object sender, RoutedEventArgs e)
         {
-
+            lblTransWelcome.Content = theUser.Username + "'s " + "Transactions";
+            List<Transaction> trans = _context.Transactions.Where(u => u.UserID == theUser.ID).ToList();
+            dtgAddress.ItemsSource = trans;
         }
 
+        private void dtgTransaction_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
+            e.Column.Header = propertyDescriptor.DisplayName;
+            if (propertyDescriptor.DisplayName == "UserID")
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnAddTransaction_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         #endregion
 
         #region Tax Tab
@@ -158,6 +174,7 @@ namespace _275___Final
         }
 
         #endregion
+
 
     }
 }

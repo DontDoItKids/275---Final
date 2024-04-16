@@ -25,5 +25,7 @@
 
         <Button x:Name="btnRegister" Click="btnRegister_Click" Grid.Column="1" Content="Register" HorizontalAlignment="Center" Margin="0,302,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lblWarning" Content="warning" Grid.Column="1" Margin="0,352,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Red" Background="LightGray" Visibility="Hidden"/>
+
+        <Button x:Name="btnBack" Click="btnBack_Click"  Grid.Column="1" Content="Go Back" HorizontalAlignment="Center" Margin="0,400,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </UserControl>
